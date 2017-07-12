@@ -1,0 +1,27 @@
+<div ng-controller="sla_grid_controller" class="sla_grid">
+  <div ng-if="!hasSomeRows && hasSomeRows !== null" class="sla_grid-error">
+    <h2 aria-hidden="true"><i aria-hidden="true" class="fa fa-meh-o"></i></h2>
+    <h4>No results found</h4>
+  </div>
+  <div ng-if="tableGroups" class="sla_grid-container">
+    <table class="table table-bordered sla_grid_table">
+      <tr>
+        <th ng-repeat="th in tableHeader" ng-click="sortFunction()" class="sla_grid_table_header">
+          <!--<i class="fa fa-sort" aria-hidden="true"></i>-->
+          {{th}}</th>
+      </tr>
+      <tr ng-repeat="tr in tableGroups">
+        <td ng-repeat="td in tr" rowspan="{{td.rowspan}}" class="sla_grid_table_data">
+          <div ng-if="td.prop.toLowerCase() === 'status'">
+            <svg height="14" width="14">
+              <circle cx="7" cy="7" r="7" fill="{{color(td.val)}}" style="opacity : 1" />
+            </svg>
+          </div>
+          <div ng-if="td.prop.toLowerCase() !== 'status'">
+            {{td.val}}
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

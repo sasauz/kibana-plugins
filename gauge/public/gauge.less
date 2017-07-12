@@ -1,0 +1,31 @@
+.gauge-meter {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+    .gauge-meter-container {
+        text-align: center;
+        padding: 1em;
+        width: 100%;
+        position: relative;
+    }
+}
+
+#power-gauge g.arc {
+    fill: steelblue;
+}
+
+#power-gauge g.pointer {
+    fill: #e85116;
+    stroke: #b64011;
+}
+
+#power-gauge g.label text {
+    text-anchor: middle;
+    font-size: 14px;
+    font-weight: bold;
+    fill: #666;
+}
